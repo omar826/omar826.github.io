@@ -58,14 +58,15 @@
                     <ul class="space-y-4">
                         <li><a href="#about" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3 active" data-target="about"><i data-lucide="user" class="w-4 h-4"></i>About</a></li>
                         <li><a href="#research" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="research"><i data-lucide="flask-conical" class="w-4 h-4"></i>Research</a></li>
-                        <li><a href="#projects" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="projects"><i data-lucide="lightbulb" class="w-4 h-4"></i>Projects</a></li>
+                        <li><a href="#projects" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="projects"><i data-lucide="lightbulb" class="w-4 h-4"></i>Other Projects</a></li>
                         <li><a href="#cv" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="cv"><i data-lucide="file-text" class="w-4 h-4"></i>CV</a></li>
                         <li><a href="#blog" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="blog"><i data-lucide="pencil" class="w-4 h-4"></i>Blog</a></li>
+                        <li><a href="#personal" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="personal"><i data-lucide="coffee" class="w-4 h-4"></i>Off-Clock</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="hidden md:block text-slate-500 text-sm">
-                <p>&copy; 2025 Omar Muhammad</p>
+                <p>&copy; 2026 Omar Muhammad</p>
             </div>
             
             <!-- Mobile Menu Button -->
@@ -81,9 +82,10 @@
             <ul class="p-4 space-y-2">
                 <li><a href="#about" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="about">About</a></li>
                 <li><a href="#research" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="research">Research</a></li>
-                <li><a href="#projects" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="projects">Projects</a></li>
+                <li><a href="#projects" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="projects">Other Projects</a></li>
                 <li><a href="#cv" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="cv">CV</a></li>
                 <li><a href="#blog" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="blog">Blog</a></li>
+                <li><a href="#personal" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="personal">Off-Clock</a></li>
             </ul>
         </nav>
 
@@ -102,15 +104,15 @@
                                 2. Change the src attribute below from the placeholder to your file name:
                                    src="profile.jpg"
                             -->
-                            <img src="omar_pic.png" alt="Omar Muhammad" class="rounded-lg shadow-md w-full">
+                            <img src="omar_pic.png" alt="Omar Muhammad" class="rounded-full shadow-md w-full aspect-square object-cover">
                         </div>
                         <div class="w-full md:w-2/3">
                             <h2 class="text-3xl font-bold text-slate-900 font-serif">About Me</h2>
                             <p class="mt-4 text-slate-600 leading-relaxed">
-                                B.Tech student specializing in Mathematics and Computing at the Indian Institute of Science with a strong interest in Formal Methods, machine learning, and algorithm design. Actively engaging with formal reasoning, program verification, applied machine learning, and abstract algebra in recent project work.
+                                I am an undergrad at IISc specializing in Mathematics annd Computing. I'm interested in Automated Reasoning, specifically looking at how we can leverage statistical learning to assist formal reasoning—and vice versa
                             </p>
                             <p class="mt-3 text-slate-600 leading-relaxed">
-                                Eager to apply rigorous mathematical and computational approaches to solve problems in a challenging environment.
+                                I am interested in using neuro-symbolic approaches to solve "synthesis bottlenecks"—like generating loop invariants or library contracts—that currently limit fully automated program verification. I also work on Interactive Theorem Proving, exploring how 'Hammer' techniques and neural models can automate proof search.
                             </p>
                             <div class="mt-8">
                                 <h3 class="text-xl font-bold text-slate-800 font-serif">Education</h3>
@@ -119,7 +121,7 @@
                                     <div>
                                         <p class="font-semibold">B.Tech in Mathematics and Computing</p>
                                         <p class="text-slate-600">Indian Institute of Science, Bengaluru (2023-2027)</p>
-                                        <p class="text-sm text-slate-500">CGPA: 9.4/10.0</p>
+                                        <p class="text-sm text-slate-500">CGPA: 9.5/10.0</p>
                                     </div>
                                     <!-- STD 12 Entry -->
                                     <div>
@@ -213,7 +215,7 @@
 
                 <!-- Projects Section -->
                 <section id="projects" class="page-content hidden">
-                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Projects</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Other Projects</h2>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Project Card 1 -->
                         <div class="bg-white rounded-lg shadow-md p-6 border border-slate-200">
@@ -315,7 +317,13 @@
                     -->
                     
                 </section>
-
+                <section id="personal" class="page-content hidden">
+                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Blog</h2>
+                    <div class="mt-8 text-center text-slate-500">
+                        <i data-lucide="construction" class="w-12 h-12 mx-auto text-slate-400"></i>
+                        <p class="mt-4">This section is under construction. Please check back later for articles and updates.</p>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
