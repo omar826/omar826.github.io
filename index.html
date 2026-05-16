@@ -3,346 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Muhammad | Personal Academic Website</title>
+    <title>Omar | Personal Website</title>
     <meta name="description" content="The personal academic website of Omar Muhammad, a B.Tech student at the Indian Institute of Science specializing in Mathematics and Computing.">
     <meta name="author" content="Omar Muhammad">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #334155; /* slate-700 */
+            line-height: 1.6;
         }
-        h1, h2, h3, .font-serif {
-            font-family: 'Lora', serif;
+        h1, h2, h3, h4, .font-serif {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            color: #0f172a; /* slate-900 */
         }
+        
+        /* Navigation Styles */
         .nav-link {
             transition: color 0.2s;
+            position: relative;
         }
         .nav-link.active {
-            color: #4f46e5; /* indigo-600 */
-            font-weight: 500;
+            color: #1d4ed8; /* blue-700 */
+            font-weight: 600;
         }
-        /* Style for the embedded PDF to be responsive */
-        .cv-embed-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 129.4%; /* Aspect ratio for A4 paper (29.7cm / 21cm) */
-        }
-        .cv-embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        
+        /* Minimalist text links */
+        a { transition: color 0.2s; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="antialiased">
 
     <div class="flex flex-col md:flex-row min-h-screen">
-        <!-- Sidebar / Header -->
-        <header class="bg-white md:w-64 lg:w-72 p-6 md:p-8 flex flex-col md:fixed md:h-full shadow-md md:shadow-none border-b md:border-b-0 md:border-r border-slate-200">
+        <header class="bg-white md:w-64 lg:w-72 p-6 md:p-10 flex flex-col md:fixed md:h-full border-b md:border-b-0 md:border-r border-slate-200">
             <div class="flex-grow">
-                <h1 class="text-2xl font-bold text-slate-900 font-serif">Omar Muhammad</h1>
+                <h1 class="text-2xl font-bold font-serif tracking-tight">Omar Muhammad</h1>
                 <p class="text-sm text-slate-500 mt-1">Mathematics & Computing at IISc</p>
                 
-                <!-- Desktop Navigation -->
                 <nav class="hidden md:block mt-12">
-                    <ul class="space-y-4">
-                        <li><a href="#about" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3 active" data-target="about"><i data-lucide="user" class="w-4 h-4"></i>About</a></li>
-                        <li><a href="#research" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="research"><i data-lucide="flask-conical" class="w-4 h-4"></i>Research</a></li>
-                        <li><a href="#projects" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="projects"><i data-lucide="lightbulb" class="w-4 h-4"></i>Other Projects</a></li>
-                        <li><a href="#cv" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="cv"><i data-lucide="file-text" class="w-4 h-4"></i>CV</a></li>
-                        <li><a href="#blog" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="blog"><i data-lucide="pencil" class="w-4 h-4"></i>Blog</a></li>
-                        <li><a href="#personal" class="nav-link text-slate-600 hover:text-indigo-600 flex items-center gap-3" data-target="personal"><i data-lucide="coffee" class="w-4 h-4"></i>Off-Clock</a></li>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="nav-link text-slate-600 hover:text-blue-700 active" data-target="about">About</a></li>
+                        <li><a href="#research" class="nav-link text-slate-600 hover:text-blue-700" data-target="research">Research</a></li>
+                        <li><a href="#projects" class="nav-link text-slate-600 hover:text-blue-700" data-target="projects">Other Projects</a></li>
+                        <li><a href="omar_cv_website.pdf" target="_blank" class="text-slate-600 hover:text-blue-700 transition-colors">CV</a></li>
+                        <li><a href="#blog" class="nav-link text-slate-600 hover:text-blue-700" data-target="blog">Blog</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="hidden md:block text-slate-500 text-sm">
+            
+            <div class="hidden md:block text-slate-400 text-xs">
                 <p>&copy; 2026 Omar Muhammad</p>
+                <div class="mt-2 flex gap-3">
+                    <a href="mailto:omarmuhammad@iisc.ac.in" class="hover:text-blue-700">Email</a>
+                    <a href="https://github.com/omar826" target="_blank" class="hover:text-blue-700">GitHub</a>
+                </div>
             </div>
             
-            <!-- Mobile Menu Button -->
             <div class="md:hidden absolute top-6 right-6">
-                <button id="mobile-menu-button" class="p-2">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                <button id="mobile-menu-button" class="text-sm font-medium text-slate-600 hover:text-blue-700 border border-slate-300 px-3 py-1 rounded">
+                    Menu
                 </button>
             </div>
         </header>
         
-        <!-- Mobile Navigation -->
-        <nav id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200">
-            <ul class="p-4 space-y-2">
-                <li><a href="#about" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="about">About</a></li>
-                <li><a href="#research" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="research">Research</a></li>
-                <li><a href="#projects" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="projects">Other Projects</a></li>
-                <li><a href="#cv" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="cv">CV</a></li>
-                <li><a href="#blog" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="blog">Blog</a></li>
-                <li><a href="#personal" class="nav-link-mobile block py-2 px-3 rounded-md hover:bg-slate-100" data-target="personal">Off-Clock</a></li>
+        <nav id="mobile-menu" class="hidden md:hidden bg-slate-50 border-b border-slate-200">
+            <ul class="p-4 space-y-1">
+                <li><a href="#about" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="about">About</a></li>
+                <li><a href="#research" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="research">Research</a></li>
+                <li><a href="#projects" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="projects">Other Projects</a></li>
+                <li><a href="omar_cv_website.pdf" target="_blank" class="block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium transition-colors">CV</a></li>
+                <li><a href="#blog" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="blog">Blog</a></li>
             </ul>
         </nav>
 
-
-        <!-- Main Content -->
-        <main class="flex-1 md:ml-64 lg:ml-72 p-6 sm:p-8 md:p-12">
-            <div class="max-w-4xl mx-auto">
-
-                <!-- About Section (Default) -->
-                <section id="about" class="page-content">
-                    <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-                        <div class="w-full md:w-1/3">
-                            <!-- 
-                                HOW TO ADD YOUR PHOTO:
-                                1. Place your photo file (e.g., 'profile.jpg') in the same folder as this HTML file.
-                                2. Change the src attribute below from the placeholder to your file name:
-                                   src="profile.jpg"
-                            -->
-                            <img src="omar_pic.png" alt="Omar Muhammad" class="rounded-full shadow-md w-full aspect-square object-cover">
-                        </div>
-                        <div class="w-full md:w-2/3">
-                            <h2 class="text-3xl font-bold text-slate-900 font-serif">About Me</h2>
-                            <p class="mt-4 text-slate-600 leading-relaxed">
-                                I am an undergrad at IISc specializing in Mathematics annd Computing. I'm interested in Automated Reasoning, specifically looking at how we can leverage statistical learning to assist formal reasoning—and vice versa
-                            </p>
-                            <p class="mt-3 text-slate-600 leading-relaxed">
-                                I am interested in using neuro-symbolic approaches to solve "synthesis bottlenecks"—like generating loop invariants or library contracts—that currently limit fully automated program verification. I also work on Interactive Theorem Proving, exploring how 'Hammer' techniques and neural models can automate proof search.
-                            </p>
-                            <div class="mt-8">
-                                <h3 class="text-xl font-bold text-slate-800 font-serif">Education</h3>
-                                <div class="mt-4 border-l-2 border-indigo-200 pl-4 space-y-4">
-                                    <!-- B.Tech Entry -->
-                                    <div>
-                                        <p class="font-semibold">B.Tech in Mathematics and Computing</p>
-                                        <p class="text-slate-600">Indian Institute of Science, Bengaluru (2023-2027)</p>
-                                        <p class="text-sm text-slate-500">CGPA: 9.5/10.0</p>
-                                    </div>
-                                    <!-- STD 12 Entry -->
-                                    <div>
-                                        <p class="font-semibold">STD 12 (CBSE)</p>
-                                        <p class="text-slate-600">Saraswathi Vidyanikethan, Ernakulam (2022-2023)</p>
-                                        <p class="text-sm text-slate-500">98.4% | School Top</p>
-                                    </div>
-                                    <!-- STD 10 Entry -->
-                                    <div>
-                                        <p class="font-semibold">STD 10 (CBSE)</p>
-                                        <p class="text-slate-600">Rajagiri Public School, Ernakulam (2020-2021)</p>
-                                        <p class="text-sm text-slate-500">98%</p>
-                                    </div>
-                                </div>
-                            </div>
+        <main class="flex-1 md:ml-64 lg:ml-72 p-6 sm:p-10 md:p-16 max-w-4xl">
+            
+            <section id="about" class="page-content">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-32 md:w-48 flex-shrink-0">
+                        <img src="omar_pic.png" alt="Omar Muhammad" class="rounded-full w-full aspect-square object-cover">
                     </div>
-                </section>
+                    <div class="w-full">
+                        <h2 class="text-3xl font-bold font-serif mb-4">About Me</h2>
+                        <p class="text-slate-700 mb-3">
+                            I am an undergraduate student at the Indian Institute of Science (IISc) specializing in Mathematics and Computing. I am interested in Automated Reasoning, specifically looking at how we can leverage statistical learning to assist formal reasoning—and vice versa.
+                        </p>
+                        <p class="text-slate-700">
+                            I focus on using neuro-symbolic approaches to solve "synthesis bottlenecks"—like generating loop invariants or library contracts—that currently limit fully automated program verification. I also work on Interactive Theorem Proving, exploring how 'Hammer' techniques and neural models can automate proof search.
+                        </p>
+                    </div>
+                </div>
 
-                <!-- Research Section -->
-<section id="research" class="page-content hidden">
-                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Research & Experience</h2>
-                    <div class="mt-8 space-y-10">
-                        
-                        <div class="flex gap-4">
-                            <div class="w-6 h-6 bg-indigo-500 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i data-lucide="flask-conical" class="w-4 h-4"></i>
-                            </div>
+                <div class="mt-12 mb-10">
+                    <h3 class="text-xl font-bold font-serif mb-4 border-b border-slate-200 pb-2">Recent News</h3>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li><span class="font-semibold text-slate-900 mr-2">[May 2026]</span> Started as a Summer Research Fellow at EPFL's DEDIS Lab.</li>
+                        <li><span class="font-semibold text-slate-900 mr-2">[April 2026]</span> Our paper on <em>Verification Modulo Tested Library Contracts</em> was accepted to PLDI 2026!</li>
+                    </ul>
+                </div>
+
+                <div class="mt-10">
+                    <h3 class="text-xl font-bold font-serif mb-4 border-b border-slate-200 pb-2">Education</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="font-bold text-lg">Enhancing Formal Verification with LLMs</h3>
-                                <p class="text-sm text-slate-500 mt-1">Research Intern | University of Virginia, USA (Remote) | Aug 2025 – Present</p>
-                                <p class="mt-2 text-slate-600 leading-relaxed">
-                                    Under the guidance of Prof. Wenxi Wang, developed ACPRO, a framework that uses a multi-agent LLM pipeline to transform low-level Z3 proofs into interpretable, high-level Verus verification steps. This work also produced the VSVerus dataset, a new resource for studying fine-grained LLM reasoning in formal verification.
-                                </p>
+                                <p class="font-bold text-slate-900">Indian Institute of Science, Bengaluru</p>
+                                <p class="text-slate-600 text-sm">B.Tech in Mathematics and Computing</p>
                             </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="w-6 h-6 bg-indigo-500 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                            <div class="text-right">
+                                <p class="text-sm text-slate-500">2023 &ndash; 2027</p>
+                                <p class="text-sm font-medium text-slate-700">CGPA: 9.5/10.0</p>
                             </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Scaling Automated Verification with LLMs</h3>
-                                <p class="text-sm text-slate-500 mt-1">Research Intern | IISc | UIUC | UW-Madison | May 2025 – July 2025</p>
-                                <p class="mt-2 text-slate-600 leading-relaxed">
-                                    In a collaboration with Prof. D. D’Souza (IISc), Prof. M. Parthasarathy (UIUC), and Prof. A. Murali (UW-Madison), contributed to a framework for verifying programs by automatically synthesizing library contracts using LLMs and ICE-learning algorithms. Designed and built the core LLM pipeline responsible for generating specifications from logical rules and integrated it into a feedback loop with formal verifiers and testing engines to ensure correctness.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                             <div class="w-6 h-6 bg-indigo-500 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i data-lucide="flask-conical" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Formalization and Verified Implementation of Group Theoretic Algorithms</h3>
-                                <p class="text-sm text-slate-500 mt-1">Summer Research Fellow | Krea University, Andhra Pradesh (Onsite) | May 2025 – July 2025</p>
-                                <p class="mt-2 text-slate-600 leading-relaxed">
-                                    Collaborating with Dr. Rishi Vyas and Dr. T.V.H Prathamesh to formalize proofs for decision problems in geometric group theory (including the word, conjugacy, and subgroup membership problems) using the Lean 4 proof assistant. Key contributions include formalizing two definitions of the Dehn function and proving their equivalence and verifying the algorithm for the conjugacy problem in free groups. Current work focuses on the computability of the Dehn function for hyperbolic groups.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4">
-                            <div class="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                               <i data-lucide="briefcase" class="w-4 h-4"></i>
-                           </div>
-                           <div>
-                               <h3 class="font-bold text-lg">Intern | National Payments Corporation of India (NPCI)</h3>
-                               <p class="text-sm text-slate-500 mt-1">Dec 2024 – June 2025</p>
-                               <p class="mt-2 text-slate-600 leading-relaxed">
-                                   Working in a small team to develop an internal tool to enable NPCI employees to query databases and generate data visualizations via natural language prompts. Designing and implementing a pipeline that translates natural language queries to SQL queries, fetches data, determines correct visualization types, and renders visual output.
-                               </p>
-                           </div>
-                       </div>
-
-                       <div class="flex gap-4">
-                        <div class="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                           <i data-lucide="briefcase" class="w-4 h-4"></i>
-                       </div>
-                       <div>
-                           <h3 class="font-bold text-lg">Intern | Applied Research Capability Network (ARC-Net), IISc Campus</h3>
-                           <p class="text-sm text-slate-500 mt-1">July 2024 – Jan 2025</p>
-                           <p class="mt-2 text-slate-600 leading-relaxed">
-                               Fine-tuned LLMs with Tool Integrated reasoning for solving math and physics problems. Used proof assistants and symbolic solvers to verify the chain of thought of the models.
-                           </p>
-                       </div>
-                   </div>
-
-                    </div>
-                </section>
-
-                <!-- Projects Section -->
-                <section id="projects" class="page-content hidden">
-                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Other Projects</h2>
-                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Project Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md p-6 border border-slate-200">
-                            <h3 class="font-bold text-lg">Image Denoising Algorithms</h3>
-                            <p class="text-sm text-slate-500 mt-1">UMC203 Project, IISc | March 2025 - April 2025</p>
-                            <p class="mt-3 text-slate-600">Implemented and evaluated various frameworks for image restoration without clean data. Designed and conducted experiments to analyze the hyperparameter sensitivity of Zero-Shot Noise2Noise.</p>
-                             <!-- Add your project links here -->
-                            <div class="mt-4 flex gap-4 text-sm font-medium">
-                                <!-- <a href="#" class="text-indigo-600 hover:underline">GitHub Repo</a> -->
-                                <!-- <a href="#" class="text-indigo-600 hover:underline">Live Demo</a> -->
-                            </div>
-                        </div>
-                        <!-- Project Card 2 -->
-                        <div class="bg-white rounded-lg shadow-md p-6 border border-slate-200">
-                            <h3 class="font-bold text-lg">Rubik's Cube Solvability Conditions</h3>
-                            <p class="text-sm text-slate-500 mt-1">Formalization Project | Feb 2025 - May 2025</p>
-                            <p class="mt-3 text-slate-600">Modeled the n x n x n Rubik's Cube as a group, formalized proof of validity of solvability conditions of the 4x4x4 cube and formulated the conditions for the n x n x n cube.</p>
-                            <div class="mt-4 flex gap-4 text-sm font-medium">
-                                <!-- <a href="#" class="text-indigo-600 hover:underline">GitHub Repo</a> -->
-                            </div>
-                        </div>
-                        <!-- Project Card 3 -->
-                        <div class="bg-white rounded-lg shadow-md p-6 border border-slate-200">
-                            <h3 class="font-bold text-lg">Robotic Arm Motion Planning</h3>
-                            <p class="text-sm text-slate-500 mt-1">Lead at Vicharaka - IISc Robotics Team | Dec 2024 - March 2025</p>
-                            <p class="mt-3 text-slate-600">Responsible for motion planning for the rover's robotic arm using MoveIt2 and ROS 2 for the URC2025 competition.</p>
-                            <div class="mt-4 flex gap-4 text-sm font-medium">
-                                 <!-- <a href="#" class="text-indigo-600 hover:underline">View Team</a> -->
-                            </div>
-                        </div>
-                         <!-- Project Card 4 -->
-                        <div class="bg-white rounded-lg shadow-md p-6 border border-slate-200">
-                            <h3 class="font-bold text-lg">Differential Topology and Knot Theory</h3>
-                            <p class="text-sm text-slate-500 mt-1">Reading Project | May 2024 - July 2024</p>
-                            <p class="mt-3 text-slate-600">Explored topics under the guidance of Professor Subhojoy Gupta, Department of Mathematics, Indian Institute of Science.</p>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <!-- Project Card 5 -->
-                        <div class="bg-white rounded-lg shadow-md p-6 border border-slate-200">
-                            <h3 class="font-bold text-lg">Automated Refute Problem Generation</h3>
-                            <p class="text-sm text-slate-500 mt-1">Developer at DataBased (CS club at IISc) | Oct 2023 – Dec 2023</p>
-                            <p class="mt-3 text-slate-600">Utilized Generative AI to develop components for an automated Refute Problem Generation system.</p>
-                             <!-- Add your project links here -->
-                            <div class="mt-4 flex gap-4 text-sm font-medium">
-                                <!-- <a href="#" class="text-indigo-600 hover:underline">View Project</a> -->
-                            </div>
-                        </div>
-                </section>
-
-                <!-- CV Section -->
-                <section id="cv" class="page-content hidden">
-                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Curriculum Vitae</h2>
-                    <div class="mt-8">
-                        <a href="omar_cv_website.pdf" download="Omar_Muhammad_CV.pdf" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300 shadow">
-                            <i data-lucide="download" class="w-5 h-5"></i>
-                            Download CV
-                        </a>
-                        <div class="mt-8 border border-slate-200 rounded-lg shadow-md overflow-hidden">
-                           <div class="cv-embed-container">
-                                <!-- 
-                                    HOW TO UPDATE YOUR CV PDF:
-                                    1. Replace the 'omar_cv_website.pdf' file in the same folder as this HTML file with your new version.
-                                    2. Make sure the new file has the EXACT same name.
-                                    3. The website will automatically display the new version.
-                                -->
-                               <iframe src="omar_cv_website.pdf" title="Omar Muhammad's CV"></iframe>
-                           </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Blog Section -->
-                <section id="blog" class="page-content hidden">
-                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Blog</h2>
-                    <div class="mt-8 text-center text-slate-500">
-                        <i data-lucide="construction" class="w-12 h-12 mx-auto text-slate-400"></i>
-                        <p class="mt-4">This section is under construction. Please check back later for articles and updates.</p>
-                    </div>
-
-                    <!-- 
-                        HOW TO ADD A NEW BLOG POST:
-                        1. Uncomment the 'article' block below by removing the '<!--' and 'o->' tags.
-                        2. Duplicate the entire 'article' block for each new post.
-                        3. Fill in the 'h3' (Title), 'p' (Date), and the content inside the 'div with class "prose"'.
-                        4. The newest post should be at the top.
-                    -->
+            <section id="research" class="page-content hidden">
+                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Research & Experience</h2>
+                <div class="space-y-10">
                     
-                    <!--
-                    <article class="mt-12 bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                        <h3 class="text-2xl font-bold font-serif text-slate-800">Your First Blog Post Title</h3>
-                        <p class="text-sm text-slate-500 mt-2">October 12, 2025</p>
-                        <div class="prose prose-slate mt-4 max-w-none">
-                            <p>This is where your blog content goes. You can write paragraphs here.</p>
-                            <p>You can add more paragraphs as needed to structure your thoughts and ideas clearly.</p>
-                            <p>Happy writing!</p>
-                        </div>
-                    </article>
-                    -->
-                    
-                </section>
-                <section id="personal" class="page-content hidden">
-                    <h2 class="text-3xl font-bold text-slate-900 font-serif">Blog</h2>
-                    <div class="mt-8 text-center text-slate-500">
-                        <i data-lucide="construction" class="w-12 h-12 mx-auto text-slate-400"></i>
-                        <p class="mt-4">This section is under construction. Please check back later for articles and updates.</p>
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Grounded Deduction</h3>
+                        <p class="text-sm text-slate-500 mb-1">Summer Research Fellow | EPFL, Switzerland (Onsite) | May 2026 &ndash; Present</p>
+                        <p class="text-sm font-medium text-slate-800 mb-2">Adviser: Prof. Bryan Ford, DEDIS Lab</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
+                            <li>Formally reasoning about and developing the novel logical framework "Grounded Deduction" in the Isabelle proof assistant.</li>
+                        </ul>
                     </div>
-                </section>
-            </div>
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Game Theory and Automata</h3>
+                        <p class="text-sm text-slate-500 mb-2">Student Researcher | IISc | Jan 2026 &ndash; Present</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
+                            <li>Investigating supergames played by finite automatons under finite costs for complexity to analyze the sequential collapse of equilibrium states.</li>
+                            <li>Deriving critical phase change thresholds that characterize these equilibrium dynamics.</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Causal Discovery in Time Series</h3>
+                        <p class="text-sm text-slate-500 mb-1">Student Researcher | IISc | Aug 2025 &ndash; May 2026</p>
+                        <p class="text-sm font-medium text-slate-800 mb-2">Adviser: Prof. Deepak N. Subramani, Computational and Data Sciences, IISc</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1 mb-3">
+                            <li>Designing a novel Transformer architecture for causal discovery in time series data.</li>
+                            <li>Developing a trainable attention mask mechanism based on forecasting objectives to learn the underlying causal graph structure, inspired by principles of causal inference.</li>
+                        </ul>
+                        <div class="text-sm font-medium">
+                            <span class="text-slate-500 mr-2">Under Review at NeurIPS</span>
+                            <a href="https://arxiv.org/abs/2605.07280" target="_blank" class="text-blue-700 hover:underline">[Paper]</a>
+                            <span class="mx-1 text-slate-300">|</span>
+                            <a href="https://github.com/omar826/Mask2Cause" target="_blank" class="text-blue-700 hover:underline">[Code]</a>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Verification Modulo Tested Library Contracts</h3>
+                        <p class="text-sm text-slate-500 mb-1">Student Researcher | IISc | May 2025 &ndash; Apr 2026</p>
+                        <p class="text-sm font-medium text-slate-800 mb-2">Advisers: Prof. D. D'Souza (IISc), Prof. M. Parthasarathy (UIUC), Prof. A. Murali (UW-Madison)</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1 mb-3">
+                            <li>Co-developed VMTLC, a hybrid framework that verifies client programs by synthesizing library specifications that are formally proven against the client but validated via testing against the library.</li>
+                            <li>Designed the Learner component within a Teacher-Learner CEGIS loop, developing two distinct LLM-integrated architectures (a pure LLM learner and an LLM-seeded ICE learner) to leverage semantic intuition, synthesizing valid contracts where traditional enumerative baselines could not.</li>
+                            <li>Designed and built the core LLM pipeline responsible for generating contracts from logical rules and integrated it into a feedback loop with formal verifiers and testing engines to ensure correctness.</li>
+                        </ul>
+                        <div class="text-sm font-medium">
+                            <span class="text-slate-500 mr-2">Accepted to PLDI 2026</span>
+                            <a href="https://arxiv.org/abs/2604.15533" target="_blank" class="text-blue-700 hover:underline">[Paper]</a>
+                            <span class="mx-1 text-slate-300">|</span>
+                            <a href="https://github.com/omar826/Dualis-VMTLC" target="_blank" class="text-blue-700 hover:underline">[Code]</a>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Enhancing Formal Verification with LLMs</h3>
+                        <p class="text-sm text-slate-500 mb-1">Research Intern | University of Virginia, USA (Remote) | Aug 2025 &ndash; Oct 2025</p>
+                        <p class="text-sm font-medium text-slate-800 mb-2">Adviser: Prof. Wenxi Wang, The University of Virginia</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
+                            <li>Developed ACPRO, a framework that uses a multi-agent LLM pipeline to transform low-level Z3 proofs into interpretable, high-level Verus verification steps.</li>
+                            <li>This work also produced the VSVerus dataset, a new resource for studying fine-grained LLM reasoning in formal verification.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Formalization of Group Theoretic Algorithms</h3>
+                        <p class="text-sm text-slate-500 mb-1">Summer Research Fellow | Krea University, India (Onsite) | May 2025 &ndash; July 2025</p>
+                        <p class="text-sm font-medium text-slate-800 mb-2">Advisers: Prof. Rishi Vyas (KREA), Prof. T.V.H Prathamesh (KREA)</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
+                            <li>Formalized proofs for decision problems in geometric group theory (including the word, conjugacy, and subgroup membership problems) using the Lean 4 proof assistant.</li>
+                            <li>Key contributions include formalizing two definitions of the Dehn function and proving their equivalence and verifying the algorithm for the conjugacy problem in free groups.</li>
+                            <li>Current work focuses on the computability of the Dehn function for hyperbolic groups.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="projects" class="page-content hidden">
+                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Reading & Course Projects</h2>
+                <div class="space-y-8">
+                    
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Threshold for Random k-SAT</h3>
+                        <p class="text-sm text-slate-500 mb-2">Reading Project | Jan 2026 &ndash; April 2026</p>
+                        <p class="text-slate-700 text-sm mb-2">
+                            Explored the satisfiability threshold for random k-SAT as part of the "Techniques in Discrete Probability" course. Analyzed foundational work by Dimitris Achlioptas and Yuval Peres, focusing on the application of weighted moment methods to bound the threshold.
+                        </p>
+                        <div class="text-sm font-medium">
+                            <a href="report_ksat.pdf" target="_blank" class="text-blue-700 hover:underline">[PDF Report]</a>
+                            <span class="mx-1 text-slate-300">|</span>
+                            <a href="presentation_ksat.pdf" target="_blank" class="text-blue-700 hover:underline">[Presentation]</a>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">The PCP Theorem</h3>
+                        <p class="text-sm text-slate-500 mb-2">Independent Study | Aug 2025 &ndash; Nov 2025</p>
+                        <p class="text-slate-700 text-sm mb-2">
+                            Conducted an in-depth study of the PCP theorem under Prof. Anand Louis, analyzing formulations in terms of probabilistically checkable verifiers and hardness of approximation. Analyzed Irit Dinur's proof of the theorem using gap amplification.
+                        </p>
+                        <div class="text-sm font-medium">
+                            <a href="PCP_report.pdf" target="_blank" class="text-blue-700 hover:underline">[PDF Report]</a>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Rubik's Cube Solvability Conditions</h3>
+                        <p class="text-sm text-slate-500 mb-2">Formalization Project | Feb 2025 &ndash; May 2025</p>
+                        <p class="text-slate-700 text-sm mb-2">
+                            Modeled the n&times;n&times;n Rubik's Cube as a group, formalized the proof of validity of solvability conditions of the 4&times;4&times;4 cube, and formulated conditions for the general n&times;n&times;n cube in Lean 4.
+                        </p>
+                        <div class="text-sm font-medium">
+                            <a href="https://github.com/omar826/N_Rubiks_Cube" target="_blank" class="text-blue-700 hover:underline">[GitHub Repo]</a>
+                        </div>
+                    </div>
+
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Image Denoising Algorithms</h3>
+                        <p class="text-sm text-slate-500 mb-2">UMC203 Project, IISc | March 2025 &ndash; April 2025</p>
+                        <p class="text-slate-700 text-sm mb-2">
+                            Implemented and evaluated various frameworks for image restoration without clean data. Designed and conducted experiments to analyze the hyperparameter sensitivity of Zero-Shot Noise2Noise.
+                        </p>
+                        <div class="text-sm font-medium">
+                            <a href="noise_report.pdf" target="_blank" class="text-blue-700 hover:underline">[PDF Report]</a>
+                            <span class="mx-1 text-slate-300">|</span>
+                            <a href="noise_presentation.pdf" target="_blank" class="text-blue-700 hover:underline">[Presentation]</a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="border-l-2 border-slate-300 pl-5">
+                        <h3 class="font-bold text-lg text-slate-900">Undecidability of First-Order Logic</h3>
+                        <p class="text-sm text-slate-500 mb-2">Reading Project | Feb 2025 &ndash; April 2025</p>
+                        <p class="text-slate-700 text-sm mb-2">
+                            Conducted an independent reading project exploring the Entscheidungsproblem. Studied the foundational proofs by Alonzo Church and Alan Turing, analyzing their profound implications for computability and formal verification systems.
+                        </p>
+                        </div>
+
+                    
+
+                </div>
+            </section>
+
+            <section id="cv" class="page-content hidden">
+                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Curriculum Vitae</h2>
+                <div>
+                    <p class="text-slate-700 mb-6">A comprehensive overview of my research experience, education, publications, and technical skills.</p>
+                    <a href="omar_cv_website.pdf" target="_blank" class="inline-flex items-center gap-2 bg-blue-700 text-white font-medium py-2 px-5 rounded hover:bg-blue-800 transition duration-200">
+                        View Full CV (PDF) &rarr;
+                    </a>
+                </div>
+            </section>
+            
+            <section id="blog" class="page-content hidden">
+                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Blog</h2>
+                <div class="py-12 text-slate-500">
+                    <p class="text-lg">Content coming soon.</p>
+                </div>
+            </section>
+
         </main>
     </div>
 
     <script>
-        lucide.createIcons();
-
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+            const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
             const pages = document.querySelectorAll('.page-content');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
             function showPage(targetId) {
                 // Hide all pages
-                pages.forEach(page => {
-                    page.classList.add('hidden');
-                });
+                pages.forEach(page => page.classList.add('hidden'));
 
                 // Show the target page
                 const targetPage = document.getElementById(targetId);
@@ -351,31 +307,29 @@
                 }
 
                 // Update active state for desktop nav
-                navLinks.forEach(link => {
+                document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.toggle('active', link.dataset.target === targetId);
                 });
+                
+                // Scroll to top when changing pages
+                window.scrollTo(0, 0);
             }
 
-            // Handle desktop navigation clicks
+            // Handle navigation clicks
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = link.dataset.target;
                     showPage(targetId);
                     window.location.hash = targetId;
+                    
+                    // If mobile link, hide menu
+                    if(link.classList.contains('nav-link-mobile')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 });
             });
             
-            // Handle mobile navigation clicks
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.dataset.target;
-                    showPage(targetId);
-                    mobileMenu.classList.add('hidden'); // Close menu after click
-                });
-            });
-
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
@@ -388,4 +342,3 @@
     </script>
 </body>
 </html>
-
