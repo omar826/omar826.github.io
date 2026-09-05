@@ -1,344 +1,495 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar | Personal Website</title>
-    <meta name="description" content="The personal academic website of Omar Muhammad, a B.Tech student at the Indian Institute of Science specializing in Mathematics and Computing.">
-    <meta name="author" content="Omar Muhammad">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omar Muhammad</title>
+<meta name="description" content="Omar Muhammad — undergraduate in Mathematics and Computing at the Indian Institute of Science. Formal methods, automated reasoning, and programming languages.">
+<meta name="author" content="Omar Muhammad">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='Georgia,serif' font-size='24' text-anchor='middle' fill='%2333526f'%3EO%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+  --paper:   #fcfbf9;
+  --ink:     #1c1c1a;
+  --muted:   #6d6b66;
+  --faint:   #8d8b85;
+  --rule:    #e4e1da;
+  --accent:  #33526f;
+  --accent-line: #b7c4d1;
+  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:  #17181a;
+    --ink:    #dcdad4;
+    --muted:  #9a978f;
+    --faint:  #86837c;
+    --rule:   #2d2f33;
+    --accent: #9dbedd;
+    --accent-line: #43596e;
+  }
+}
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        body {
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #ffffff;
-            color: #334155; /* slate-700 */
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4, .font-serif {
-            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-            color: #0f172a; /* slate-900 */
-        }
-        
-        /* Navigation Styles */
-        .nav-link {
-            transition: color 0.2s;
-            position: relative;
-        }
-        .nav-link.active {
-            color: #1d4ed8; /* blue-700 */
-            font-weight: 600;
-        }
-        
-        /* Minimalist text links */
-        a { transition: color 0.2s; }
-    </style>
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line);
+    text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: currentColor; }
+
+.wrap {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 68px 32px 96px;
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: 64px;
+}
+
+/* ---------- sidebar ---------- */
+.side { position: sticky; top: 56px; align-self: start; }
+.portrait {
+  width: 148px; height: 148px; object-fit: cover;
+  border-radius: 3px; display: block; margin-bottom: 18px;
+}
+.side h1 { font-size: 1.28rem; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+.side .affil { font-size: 0.86rem; color: var(--muted); margin: 4px 0 0; line-height: 1.45; }
+
+.side nav { margin-top: 26px; }
+.side nav ul { list-style: none; margin: 0; padding: 0; }
+.side nav li { margin: 0 0 5px; }
+.side nav a {
+  font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.01em;
+  color: var(--muted); text-decoration: none; border-left: 2px solid transparent;
+  padding-left: 10px; margin-left: -12px; display: inline-block;
+}
+.side nav a:hover { color: var(--ink); }
+.side nav a.current { color: var(--ink); border-left-color: var(--accent); }
+
+.side .contact { margin-top: 26px; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
+.side .contact a { display: block; margin-bottom: 5px; }
+
+/* ---------- main ---------- */
+main { max-width: 42rem; }
+h2 {
+  font-family: var(--sans);
+  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--faint);
+  margin: 58px 0 20px; padding-bottom: 7px;
+  border-bottom: 1px solid var(--rule);
+}
+section:first-of-type h2:first-child { margin-top: 0; }
+section { scroll-margin-top: 40px; }
+
+.lead p { margin: 0 0 14px; }
+.lead p:last-child { margin-bottom: 0; }
+
+/* entries */
+.entry { margin-bottom: 26px; }
+.entry:last-child { margin-bottom: 0; }
+.entry h3 { font-size: 1.03rem; font-weight: 600; margin: 0; line-height: 1.4; }
+.entry .meta { font-family: var(--sans); font-size: 0.79rem; color: var(--muted); margin: 3px 0 0; }
+.entry .adviser { font-size: 0.88rem; color: var(--muted); font-style: italic; margin: 2px 0 0; }
+.entry ul { margin: 9px 0 0; padding-left: 1.05em; }
+.entry li { margin: 0 0 5px; font-size: 0.95rem; line-height: 1.55; }
+.entry p.body { margin: 8px 0 0; font-size: 0.95rem; }
+
+.links { font-family: var(--sans); font-size: 0.78rem; margin: 8px 0 0; }
+.links a { margin-right: 14px; }
+
+/* publications */
+.pub { margin-bottom: 24px; }
+.pub:last-child { margin-bottom: 0; }
+.pub .title { font-weight: 600; }
+.pub .authors { font-size: 0.92rem; margin: 2px 0 0; }
+.pub .authors .me { font-weight: 600; }
+.pub .venue { font-size: 0.9rem; font-style: italic; color: var(--muted); margin: 2px 0 0; }
+
+/* education / awards / skills */
+.row { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+.row .what { font-weight: 600; }
+.row .sub { font-size: 0.9rem; color: var(--muted); }
+.row .when { font-family: var(--sans); font-size: 0.79rem; color: var(--muted); white-space: nowrap; }
+
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li { margin-bottom: 7px; font-size: 0.95rem; padding-left: 1.2em; text-indent: -1.2em; }
+ul.plain li::before { content: "—"; color: var(--faint); margin-right: 0.45em; }
+
+/* news */
+.news { list-style: none; margin: 0; padding: 0; }
+.news li { font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 14px; }
+.news .date { font-family: var(--sans); font-size: 0.76rem; color: var(--faint); white-space: nowrap;
+              padding-top: 3px; min-width: 5.2rem; }
+
+footer { margin-top: 64px; padding-top: 18px; border-top: 1px solid var(--rule);
+         font-family: var(--sans); font-size: 0.76rem; color: var(--faint); }
+footer p { margin: 0; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .wrap { grid-template-columns: 1fr; gap: 34px; padding: 40px 22px 64px; }
+  .side { position: static; }
+  .portrait { width: 104px; height: 104px; }
+  .side nav ul { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .side nav li { margin: 0; }
+  .side nav a { border-left: none; padding-left: 0; margin-left: 0; border-bottom: 2px solid transparent; }
+  .side nav a.current { border-left: none; border-bottom-color: var(--accent); }
+  .side .contact a { display: inline-block; margin-right: 18px; }
+  .row { flex-direction: column; gap: 0; }
+  main { max-width: none; }
+}
+
+@media print {
+  .side nav, .side .contact, .portrait { display: none; }
+  body { font-size: 10.5pt; color: #000; background: #fff; }
+  .wrap { display: block; padding: 0; max-width: none; }
+  a { color: #000; text-decoration: none; }
+  .entry, .pub { page-break-inside: avoid; }
+}
+</style>
 </head>
-<body class="antialiased">
+<body>
+<div class="wrap">
 
-    <div class="flex flex-col md:flex-row min-h-screen">
-        <header class="bg-white md:w-64 lg:w-72 p-6 md:p-10 flex flex-col md:fixed md:h-full border-b md:border-b-0 md:border-r border-slate-200">
-            <div class="flex-grow">
-                <h1 class="text-2xl font-bold font-serif tracking-tight">Omar Muhammad</h1>
-                <p class="text-sm text-slate-500 mt-1">Mathematics & Computing at IISc</p>
-                
-                <nav class="hidden md:block mt-12">
-                    <ul class="space-y-3">
-                        <li><a href="#about" class="nav-link text-slate-600 hover:text-blue-700 active" data-target="about">About</a></li>
-                        <li><a href="#research" class="nav-link text-slate-600 hover:text-blue-700" data-target="research">Research</a></li>
-                        <li><a href="#projects" class="nav-link text-slate-600 hover:text-blue-700" data-target="projects">Other Projects</a></li>
-                        <li><a href="omar_cv_website.pdf" target="_blank" class="text-slate-600 hover:text-blue-700 transition-colors">CV</a></li>
-                        <li><a href="#blog" class="nav-link text-slate-600 hover:text-blue-700" data-target="blog">Blog</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <div class="hidden md:block text-slate-400 text-xs">
-                <p>&copy; 2026 Omar Muhammad</p>
-                <div class="mt-2 flex gap-3">
-                    <a href="mailto:omarmuhammad@iisc.ac.in" class="hover:text-blue-700">Email</a>
-                    <a href="https://github.com/omar826" target="_blank" class="hover:text-blue-700">GitHub</a>
-                </div>
-            </div>
-            
-            <div class="md:hidden absolute top-6 right-6">
-                <button id="mobile-menu-button" class="text-sm font-medium text-slate-600 hover:text-blue-700 border border-slate-300 px-3 py-1 rounded">
-                    Menu
-                </button>
-            </div>
-        </header>
-        
-        <nav id="mobile-menu" class="hidden md:hidden bg-slate-50 border-b border-slate-200">
-            <ul class="p-4 space-y-1">
-                <li><a href="#about" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="about">About</a></li>
-                <li><a href="#research" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="research">Research</a></li>
-                <li><a href="#projects" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="projects">Other Projects</a></li>
-                <li><a href="omar_cv_website.pdf" target="_blank" class="block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium transition-colors">CV</a></li>
-                <li><a href="#blog" class="nav-link-mobile block py-2 px-3 text-slate-700 hover:text-blue-700 font-medium" data-target="blog">Blog</a></li>
-            </ul>
-        </nav>
+  <header class="side">
+    <img class="portrait" src="omar_pic_web.jpg" alt="Omar Muhammad" width="148" height="148">
+    <h1>Omar Muhammad</h1>
+    <p class="affil">Mathematics &amp; Computing<br>Indian Institute of Science, Bengaluru</p>
 
-        <main class="flex-1 md:ml-64 lg:ml-72 p-6 sm:p-10 md:p-16 max-w-4xl">
-            
-            <section id="about" class="page-content">
-                <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="w-32 md:w-48 flex-shrink-0">
-                        <img src="omar_pic.png" alt="Omar Muhammad" class="rounded-full w-full aspect-square object-cover">
-                    </div>
-                    <div class="w-full">
-                        <h2 class="text-3xl font-bold font-serif mb-4">About Me</h2>
-                        <p class="text-slate-700 mb-3">
-                            I am an undergraduate student at the Indian Institute of Science (IISc) specializing in Mathematics and Computing. I am interested in Automated Reasoning, specifically looking at how we can leverage statistical learning to assist formal reasoning—and vice versa.
-                        </p>
-                        <p class="text-slate-700">
-                            I focus on using neuro-symbolic approaches to solve "synthesis bottlenecks"—like generating loop invariants or library contracts—that currently limit fully automated program verification. I also work on Interactive Theorem Proving, exploring how 'Hammer' techniques and neural models can automate proof search.
-                        </p>
-                    </div>
-                </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#writing">Writing</a></li>
+      </ul>
+    </nav>
 
-                <div class="mt-12 mb-10">
-                    <h3 class="text-xl font-bold font-serif mb-4 border-b border-slate-200 pb-2">Recent News</h3>
-                    <ul class="space-y-3 text-sm text-slate-700">
-                        <li><span class="font-semibold text-slate-900 mr-2">[May 2026]</span> Started as a Summer Research Fellow at EPFL's DEDIS Lab.</li>
-                        <li><span class="font-semibold text-slate-900 mr-2">[April 2026]</span> Our paper on <em>Verification Modulo Tested Library Contracts</em> was accepted to PLDI 2026!</li>
-                    </ul>
-                </div>
-
-                <div class="mt-10">
-                    <h3 class="text-xl font-bold font-serif mb-4 border-b border-slate-200 pb-2">Education</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="font-bold text-slate-900">Indian Institute of Science, Bengaluru</p>
-                                <p class="text-slate-600 text-sm">B.Tech in Mathematics and Computing</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-sm text-slate-500">2023 &ndash; 2027</p>
-                                <p class="text-sm font-medium text-slate-700">CGPA: 9.5/10.0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="research" class="page-content hidden">
-                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Research & Experience</h2>
-                <div class="space-y-10">
-                    
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Grounded Deduction</h3>
-                        <p class="text-sm text-slate-500 mb-1">Summer Research Fellow | EPFL, Switzerland (Onsite) | May 2026 &ndash; Present</p>
-                        <p class="text-sm font-medium text-slate-800 mb-2">Adviser: Prof. Bryan Ford, DEDIS Lab</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
-                            <li>Formally reasoning about and developing the novel logical framework "Grounded Deduction" in the Isabelle proof assistant.</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Game Theory and Automata</h3>
-                        <p class="text-sm text-slate-500 mb-2">Student Researcher | IISc | Jan 2026 &ndash; Present</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
-                            <li>Investigating supergames played by finite automatons under finite costs for complexity to analyze the sequential collapse of equilibrium states.</li>
-                            <li>Deriving critical phase change thresholds that characterize these equilibrium dynamics.</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Causal Discovery in Time Series</h3>
-                        <p class="text-sm text-slate-500 mb-1">Student Researcher | IISc | Aug 2025 &ndash; May 2026</p>
-                        <p class="text-sm font-medium text-slate-800 mb-2">Adviser: Prof. Deepak N. Subramani, Computational and Data Sciences, IISc</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1 mb-3">
-                            <li>Designed a novel Transformer architecture for causal discovery in time series data.</li>
-                            <li>Developed a trainable attention mask mechanism based on forecasting objectives to learn the underlying causal graph structure, inspired by principles of causal inference.</li>
-                        </ul>
-                        <div class="text-sm font-medium">
-                            <span class="text-slate-500 mr-2">Under Review at NeurIPS</span>
-                            <a href="https://arxiv.org/abs/2605.07280" target="_blank" class="text-blue-700 hover:underline">[Paper]</a>
-                            <span class="mx-1 text-slate-300">|</span>
-                            <a href="https://github.com/omar826/Mask2Cause" target="_blank" class="text-blue-700 hover:underline">[Code]</a>
-                        </div>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Verification Modulo Tested Library Contracts</h3>
-                        <p class="text-sm text-slate-500 mb-1">Student Researcher | IISc | May 2025 &ndash; Apr 2026</p>
-                        <p class="text-sm font-medium text-slate-800 mb-2">Advisers: Prof. D. D'Souza (IISc), Prof. M. Parthasarathy (UIUC), Prof. A. Murali (UW-Madison)</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1 mb-3">
-                            <li>Co-developed VMTLC, a hybrid framework that verifies client programs by synthesizing library specifications that are formally proven against the client but validated via testing against the library.</li>
-                            <li>Designed the Learner component within a Teacher-Learner CEGIS loop, developing two distinct LLM-integrated architectures (a pure LLM learner and an LLM-seeded ICE learner) to leverage semantic intuition, synthesizing valid contracts where traditional enumerative baselines could not.</li>
-                            <li>Designed and built the core LLM pipeline responsible for generating contracts from logical rules and integrated it into a feedback loop with formal verifiers and testing engines to ensure correctness.</li>
-                        </ul>
-                        <div class="text-sm font-medium">
-                            <span class="text-slate-500 mr-2">Accepted to PLDI 2026</span>
-                            <a href="https://arxiv.org/abs/2604.15533" target="_blank" class="text-blue-700 hover:underline">[Paper]</a>
-                            <span class="mx-1 text-slate-300">|</span>
-                            <a href="https://github.com/omar826/Dualis-VMTLC" target="_blank" class="text-blue-700 hover:underline">[Code]</a>
-                        </div>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Enhancing Formal Verification with LLMs</h3>
-                        <p class="text-sm text-slate-500 mb-1">Research Intern | University of Virginia, USA (Remote) | Aug 2025 &ndash; Oct 2025</p>
-                        <p class="text-sm font-medium text-slate-800 mb-2">Adviser: Prof. Wenxi Wang, The University of Virginia</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
-                            <li>Developed ACPRO, a framework that uses a multi-agent LLM pipeline to transform low-level Z3 proofs into interpretable, high-level Verus verification steps.</li>
-                            <li>This work also produced the VSVerus dataset, a new resource for studying fine-grained LLM reasoning in formal verification.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Formalization of Group Theoretic Algorithms</h3>
-                        <p class="text-sm text-slate-500 mb-1">Summer Research Fellow | Krea University, India (Onsite) | May 2025 &ndash; July 2025</p>
-                        <p class="text-sm font-medium text-slate-800 mb-2">Advisers: Prof. Rishi Vyas (KREA), Prof. T.V.H Prathamesh (KREA)</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-700 text-sm space-y-1">
-                            <li>Formalized proofs for decision problems in geometric group theory (including the word, conjugacy, and subgroup membership problems) using the Lean 4 proof assistant.</li>
-                            <li>Key contributions include formalizing two definitions of the Dehn function and proving their equivalence and verifying the algorithm for the conjugacy problem in free groups.</li>
-                            <li>Current work focuses on the computability of the Dehn function for hyperbolic groups.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </section>
-
-            <section id="projects" class="page-content hidden">
-                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Reading & Course Projects</h2>
-                <div class="space-y-8">
-                    
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Threshold for Random k-SAT</h3>
-                        <p class="text-sm text-slate-500 mb-2">Reading Project | Jan 2026 &ndash; April 2026</p>
-                        <p class="text-slate-700 text-sm mb-2">
-                            Explored the satisfiability threshold for random k-SAT as part of the "Techniques in Discrete Probability" course. Analyzed foundational work by Dimitris Achlioptas and Yuval Peres, focusing on the application of weighted moment methods to bound the threshold.
-                        </p>
-                        <div class="text-sm font-medium">
-                            <a href="report_ksat.pdf" target="_blank" class="text-blue-700 hover:underline">[PDF Report]</a>
-                            <span class="mx-1 text-slate-300">|</span>
-                            <a href="presentation_ksat.pdf" target="_blank" class="text-blue-700 hover:underline">[Presentation]</a>
-                        </div>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">The PCP Theorem</h3>
-                        <p class="text-sm text-slate-500 mb-2">Independent Study | Aug 2025 &ndash; Nov 2025</p>
-                        <p class="text-slate-700 text-sm mb-2">
-                            Conducted an in-depth study of the PCP theorem under Prof. Anand Louis, analyzing formulations in terms of probabilistically checkable verifiers and hardness of approximation. Analyzed Irit Dinur's proof of the theorem using gap amplification.
-                        </p>
-                        <div class="text-sm font-medium">
-                            <a href="PCP_report.pdf" target="_blank" class="text-blue-700 hover:underline">[PDF Report]</a>
-                        </div>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Rubik's Cube Solvability Conditions</h3>
-                        <p class="text-sm text-slate-500 mb-2">Formalization Project | Feb 2025 &ndash; May 2025</p>
-                        <p class="text-slate-700 text-sm mb-2">
-                            Modeled the n&times;n&times;n Rubik's Cube as a group, formalized the proof of validity of solvability conditions of the 4&times;4&times;4 cube, and formulated conditions for the general n&times;n&times;n cube in Lean 4.
-                        </p>
-                        <div class="text-sm font-medium">
-                            <a href="https://github.com/omar826/N_Rubiks_Cube" target="_blank" class="text-blue-700 hover:underline">[GitHub Repo]</a>
-                        </div>
-                    </div>
-
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Image Denoising Algorithms</h3>
-                        <p class="text-sm text-slate-500 mb-2">UMC203 Project, IISc | March 2025 &ndash; April 2025</p>
-                        <p class="text-slate-700 text-sm mb-2">
-                            Implemented and evaluated various frameworks for image restoration without clean data. Designed and conducted experiments to analyze the hyperparameter sensitivity of Zero-Shot Noise2Noise.
-                        </p>
-                        <div class="text-sm font-medium">
-                            <a href="noise_report.pdf" target="_blank" class="text-blue-700 hover:underline">[PDF Report]</a>
-                            <span class="mx-1 text-slate-300">|</span>
-                            <a href="noise_presentation.pdf" target="_blank" class="text-blue-700 hover:underline">[Presentation]</a>
-                        </div>
-                    </div>
-
-
-
-                    <div class="border-l-2 border-slate-300 pl-5">
-                        <h3 class="font-bold text-lg text-slate-900">Undecidability of First-Order Logic</h3>
-                        <p class="text-sm text-slate-500 mb-2">Reading Project | Feb 2025 &ndash; April 2025</p>
-                        <p class="text-slate-700 text-sm mb-2">
-                            Conducted an independent reading project exploring the Entscheidungsproblem. Studied the foundational proofs by Alonzo Church and Alan Turing, analyzing their profound implications for computability and formal verification systems.
-                        </p>
-                        </div>
-
-                    
-
-                </div>
-            </section>
-
-            <section id="cv" class="page-content hidden">
-                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Curriculum Vitae</h2>
-                <div>
-                    <p class="text-slate-700 mb-6">A comprehensive overview of my research experience, education, publications, and technical skills.</p>
-                    <a href="omar_cv_website.pdf" target="_blank" class="inline-flex items-center gap-2 bg-blue-700 text-white font-medium py-2 px-5 rounded hover:bg-blue-800 transition duration-200">
-                        View Full CV (PDF) &rarr;
-                    </a>
-                </div>
-            </section>
-            
-            <section id="blog" class="page-content hidden">
-                <h2 class="text-3xl font-bold font-serif mb-8 border-b border-slate-200 pb-3">Blog</h2>
-                <div class="py-12 text-slate-500">
-                    <p class="text-lg">Content coming soon.</p>
-                </div>
-            </section>
-
-        </main>
+    <div class="contact">
+      <a href="omar_cv.pdf">Curriculum Vitae (PDF)</a>
+      <a id="email-link" href="#">omarmuhammad [at] iisc.ac.in</a>
+      <a href="https://github.com/omar826">GitHub</a>
     </div>
+  </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
-            const pages = document.querySelectorAll('.page-content');
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+  <main>
 
-            function showPage(targetId) {
-                // Hide all pages
-                pages.forEach(page => page.classList.add('hidden'));
+    <section id="about">
+      <h2>About</h2>
+      <div class="lead">
+        <p>I am an undergraduate at the Indian Institute of Science (IISc), specializing in Mathematics and Computing. I am interested in mathematical logic, program verification, and theorem provers.</p>
+        <p>I&rsquo;m currently enjoying designing proof search techniques: deciding what a prover should try first, what it should never try, and what a logic has to look like for the search to stand a chance. I&rsquo;ve also worked on synthesis bottlenecks that limit fully automated program verification, such as generating loop invariants or library contracts, approached with neuro-symbolic methods.</p>
+      </div>
 
-                // Show the target page
-                const targetPage = document.getElementById(targetId);
-                if (targetPage) {
-                    targetPage.classList.remove('hidden');
-                }
+      <h2>News</h2>
+      <ul class="news">
+        <li><span class="date">May 2026</span><span>Started as a Summer Research Fellow at EPFL&rsquo;s DEDIS Lab, working on grounded deduction with Prof. Bryan Ford.</span></li>
+        <li><span class="date">Apr 2026</span><span>Our paper on <em>Verification Modulo Tested Library Contracts</em> was accepted to PLDI 2026.</span></li>
+      </ul>
 
-                // Update active state for desktop nav
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.toggle('active', link.dataset.target === targetId);
-                });
-                
-                // Scroll to top when changing pages
-                window.scrollTo(0, 0);
-            }
+      <h2>Education</h2>
+      <div class="row">
+        <div>
+          <div class="what">Indian Institute of Science, Bengaluru</div>
+          <div class="sub">B.Tech in Mathematics and Computing &middot; CGPA 9.5/10.0</div>
+        </div>
+        <div class="when">2023 &ndash; 2027</div>
+      </div>
+    </section>
 
-            // Handle navigation clicks
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.dataset.target;
-                    showPage(targetId);
-                    window.location.hash = targetId;
-                    
-                    // If mobile link, hide menu
-                    if(link.classList.contains('nav-link-mobile')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-            
-            // Toggle mobile menu
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Show page based on URL hash on initial load
-            const initialTarget = window.location.hash.substring(1) || 'about';
-            showPage(initialTarget);
-        });
-    </script>
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="pub">
+        <div class="title">Verification Modulo Tested Library Contracts</div>
+        <p class="authors">Abhishek Uppar, <span class="me">Omar Muhammad</span>, Sumanth Prabhu S, Deepak D&rsquo;Souza, P. Madhusudan, Adithya Murali.</p>
+        <p class="venue">Accepted to ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2026) and appeared in PACMPL.</p>
+        <p class="links">
+          <a href="https://dl.acm.org/doi/10.1145/3808305">Paper</a>
+          <a href="https://github.com/omar826/Dualis-VMTLC">Code</a>
+        </p>
+      </div>
+
+      <div class="pub">
+        <div class="title">Have a thing? Reasoning around recursion with dynamic typing in grounded arithmetic</div>
+        <p class="authors">Bryan Ford, Elliot Bobrow, Stefan Milenkovi&#263;, <span class="me">Omar Muhammad</span>, Dimitrios Alexopoulos, Yusuf Demir, Ananthajit Srikant</p>
+        <p class="venue">Under review at the ACM SIGPLAN Conference on Principles of Programming Languages.</p>
+        <p class="links">
+          <a href="https://arxiv.org/abs/2510.25369">Paper</a>
+        </p>
+      </div>
+
+      <div class="pub">
+        <div class="title">Mask2Cause: Causal Discovery via Adjacency Constrained Causal Attention</div>
+        <p class="authors"><span class="me">Omar Muhammad</span>, Pasupuleti Dhruv Shivkant, Deepak N. Subramani</p>
+        <p class="venue">Under review at the conference on Neural Information Processing Systems (NeurIPS 2026).</p>
+        <p class="links">
+          <a href="https://arxiv.org/abs/2605.07280">Paper</a>
+          <a href="https://github.com/omar826/Mask2Cause">Code</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+
+      <div class="entry">
+        <h3>Grounded Deduction</h3>
+        <p class="meta">Summer Research Fellow &middot; EPFL, Switzerland &middot; May 2026 &ndash; Present (onsite May &ndash; July 2026; remote after)</p>
+        <p class="adviser">Adviser: Prof. Bryan Ford, DEDIS Lab</p>
+        <ul>
+          <li>Developing Grounded Arithmetic, a non-classical logic that admits arbitrary recursive definitions without prior termination proofs, and mechanising its metatheory in Isabelle.</li>
+          <li>Proved truth preservation and primitive recursiveness for the inference rules of Basic Grounded Arithmetic (BGA). Contributed to the design of Propositional Grounded Arithmetic (PGA).</li>
+          <li>Built a quantified extension of Grounded Arithmetic as a usable object logic in Isabelle/Pure, and established the consistency of BGA within it.</li>
+          <li>Designing automated proof-search tactics for the Isabelle/Pure development, which inherits none of the automation built for classical and intuitionistic logics.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Verification Modulo Tested Library Contracts</h3>
+        <p class="meta">Student Researcher &middot; IISc &middot; May 2025 &ndash; Apr 2026</p>
+        <p class="adviser">Advisers: Prof. D. D&rsquo;Souza (IISc), Prof. P. Madhusudan (UIUC), Prof. A. Murali (UW-Madison)</p>
+        <ul>
+          <li>Co-developed VMTLC, a hybrid framework that verifies client programs by synthesizing library specifications that are formally proven against the client but validated via testing against the library.</li>
+          <li>Designed the Learner component within a Teacher-Learner CEGIS loop, developing two distinct LLM-integrated architectures (a pure LLM learner and an LLM-seeded ICE learner) to leverage semantic intuition, synthesizing valid contracts where traditional enumerative baselines could not.</li>
+          <li>Designed and built the core LLM pipeline responsible for generating contracts from logical rules and integrated it into a feedback loop with formal verifiers and testing engines to ensure correctness.</li>
+        </ul>
+        <p class="links">
+          <a href="https://dl.acm.org/doi/10.1145/3808305">Paper</a>
+          <a href="https://github.com/omar826/Dualis-VMTLC">Code</a>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>Enhancing Formal Verification with LLMs</h3>
+        <p class="meta">Research Intern &middot; University of Virginia, USA (Remote) &middot; Aug 2025 &ndash; Oct 2025</p>
+        <p class="adviser">Adviser: Prof. Wenxi Wang, The University of Virginia</p>
+        <ul>
+          <li>Developed ACPRO, a framework that uses a multi-agent LLM pipeline to transform low-level Z3 proofs into interpretable, high-level Verus verification steps.</li>
+          <li>This work also produced the VSVerus dataset, a new resource for studying fine-grained LLM reasoning in formal verification.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Formalization of Group Theoretic Algorithms</h3>
+        <p class="meta">Summer Research Fellow &middot; Krea University, India (Onsite) &middot; May 2025 &ndash; July 2025</p>
+        <p class="adviser">Advisers: Prof. Rishi Vyas (KREA), Prof. T.V.H Prathamesh (KREA)</p>
+        <ul>
+          <li>Formalized proofs for decision problems in geometric group theory (including the word, conjugacy, and subgroup membership problems) using the Lean 4 proof assistant.</li>
+          <li>Key contributions include formalizing two definitions of the Dehn function and proving their equivalence and verifying the algorithm for the conjugacy problem in free groups.</li>
+          <li>Current work focuses on the computability of the Dehn function for hyperbolic groups.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Game Theory and Automata</h3>
+        <p class="meta">Student Researcher &middot; IISc &middot; Jan 2026 &ndash; Present</p>
+        <ul>
+          <li>Investigating supergames played by finite automata under finite costs for complexity to analyze the sequential collapse of equilibrium states.</li>
+          <li>Deriving critical phase change thresholds that characterize these equilibrium dynamics.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Causal Discovery in Time Series</h3>
+        <p class="meta">Student Researcher &middot; IISc &middot; Aug 2025 &ndash; Present</p>
+        <p class="adviser">Adviser: Prof. Deepak N. Subramani, Computational and Data Sciences, IISc</p>
+        <ul>
+          <li>Proposed and developed Mask2Cause, an end-to-end Transformer that recovers the causal graph during the forecasting forward pass via a learnable sparse adjacency injected as a log-barrier into masked attention over inverted variable embeddings.</li>
+          <li>Formulated causal discovery under volatility spillover, where one variable governs the conditional variance rather than the mean of another. Motivated the heteroscedastic objective through the theory of directed information graphs and showed neural Granger causality to be its additive-noise special case.</li>
+          <li>Built Mixed Physics, the first benchmark separating mean-parents from variance-parents, and the first model to recover variance-mediated edges explicitly. Attained state-of-the-art accuracy at reduced parameter count.</li>
+        </ul>
+        <p class="links">
+          <a href="https://arxiv.org/abs/2605.07280">Paper</a>
+          <a href="https://github.com/omar826/Mask2Cause">Code</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="entry">
+        <h3>Program Analysis and Verification</h3>
+        <p class="meta">Teaching Assistant &middot; IISc &middot; Aug 2026 &ndash; Present</p>
+        <p class="adviser">Instructors: Prof. Deepak D&rsquo;Souza, Prof. K. V. Raghavan</p>
+        <ul>
+          <li>Designed the course project and mentored student teams through it. Graded assignments, conducted vivas, and held regular office hours for doubt clearing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="software">
+      <h2>Software</h2>
+
+      <div class="entry">
+        <h3>National Payments Corporation of India (NPCI)</h3>
+        <p class="meta">Intern &middot; Dec 2024 &ndash; June 2025</p>
+        <p class="adviser">Adviser: Prof. Viraj Kumar, Divecha Centre for Climate Change, IISc</p>
+        <ul>
+          <li>Developed an internal tool to enable NPCI employees to query databases and generate data visualizations via natural language prompts.</li>
+          <li>Implemented a pipeline that translates natural language queries to SQL queries, fetches data, determines correct visualization types, and renders visual output.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Applied Research Capability Network (ARC-Net), IISc Campus</h3>
+        <p class="meta">Intern &middot; July 2024 &ndash; Jan 2025</p>
+        <ul>
+          <li>Fine-tuned LLMs with Tool Integrated reasoning for solving math and physics problems.</li>
+          <li>Used proof assistants and symbolic solvers to verify the chain of thought of the models.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="entry">
+        <h3>Logic and Automated Theorem Proving</h3>
+        <p class="meta">Independent Study &middot; IISc &middot; Aug 2026 &ndash; Present</p>
+        <p class="adviser">Adviser: Prof. Deepak D&rsquo;Souza</p>
+        <ul>
+          <li>Studying structural proof theory (sequent calculi, cut-elimination and the properties a calculus needs for proof search to be feasible), provability and self-reference (G&ouml;del&rsquo;s incompleteness theorems, the derivability conditions, L&ouml;b&rsquo;s and Tarski&rsquo;s theorems), decidable fragments of logic, and automated reasoning (unification, resolution, superposition, tableaux and decision procedures for decidable theories).</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Threshold for Random k-SAT</h3>
+        <p class="meta">Reading Project &middot; Jan 2026 &ndash; April 2026</p>
+        <ul>
+          <li>Explored the satisfiability threshold for random k-SAT as part of the &ldquo;Techniques in Discrete Probability&rdquo; course under the guidance of Prof. Riddhipratim Basu, IISc.</li>
+          <li>Analyzed the foundational work by Dimitris Achlioptas and Yuval Peres, on the application of weighted moment methods to bound the threshold.</li>
+        </ul>
+        <p class="links">
+          <a href="report_ksat.pdf">Report</a>
+          <a href="presentation_ksat.pdf">Presentation</a>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>PCP Theorem</h3>
+        <p class="meta">Reading Project &middot; Aug 2025 &ndash; Nov 2025</p>
+        <ul>
+          <li>Conducted an in-depth study of the PCP theorem, analyzing its formulations in terms of both probabilistically checkable verifiers and the hardness of approximation under the guidance of Prof. Anand Louis, Department of Computer Science and Automation, IISc.</li>
+          <li>Analyzed Irit Dinur&rsquo;s proof of the theorem using gap amplification.</li>
+        </ul>
+        <p class="links">
+          <a href="PCP_report.pdf">Report</a>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>Rubik&rsquo;s Cube Solvability Conditions</h3>
+        <p class="meta">Formalization Project &middot; Feb 2025 &ndash; May 2025</p>
+        <ul>
+          <li>Modeled the n&times;n&times;n Rubik&rsquo;s Cube as a group, formalized proof of validity of solvability conditions of the 4&nbsp;&times;&nbsp;4&nbsp;&times;&nbsp;4 Rubik&rsquo;s Cube and formulated the solvability conditions for the n&times;n&times;n cube in Lean 4.</li>
+        </ul>
+        <p class="links">
+          <a href="https://github.com/omar826/N_Rubiks_Cube">GitHub Repo</a>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>Undecidability of First-Order Logic</h3>
+        <p class="meta">Reading Project &middot; Feb 2025 &ndash; April 2025</p>
+        <ul>
+          <li>Studied the foundational proof by Alonzo Church, and its implications for computability and formal verification systems.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>Image Denoising Algorithms</h3>
+        <p class="meta">Research Project &middot; March 2025 &ndash; April 2025</p>
+        <ul>
+          <li>Implemented and evaluated various frameworks for image restoration without clean data.</li>
+          <li>Designed and conducted experiments to analyze the hyperparameter sensitivity of Zero-Shot Noise2Noise implementation.</li>
+        </ul>
+        <p class="links">
+          <a href="noise_report.pdf">Report</a>
+          <a href="noise_presentation.pdf">Presentation</a>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>Differential Topology and Knot Theory</h3>
+        <p class="meta">Reading Project &middot; May 2024 &ndash; July 2024</p>
+        <ul>
+          <li>Explored topics in Differential Topology and Knot Theory under the guidance of Prof. Subhojoy Gupta, Department of Mathematics, Indian Institute of Science.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <h3>DataBased (CS club at IISc)</h3>
+        <p class="meta">Developer &middot; Oct 2023 &ndash; Dec 2023</p>
+        <ul>
+          <li>Utilized Generative AI to develop components for an automated Refute Problem Generation system.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2>Awards &amp; Recognitions</h2>
+      <ul class="plain">
+        <li>Selected for MITACS Globalink Research Internship 2026 (Offers: Undergraduate Summer Research Program [UGSRP] at University of Toronto; Fields Undergraduate Summer Research Program [FUSRP] at University of Waterloo)</li>
+        <li>JEE Advanced Examination: 646th rank</li>
+        <li>JEE Mains Examination: 99.95 percentile, 654th rank</li>
+        <li>KVPY (Kishore Vaigyanik Protsahan Yojana) Scholar</li>
+        <li>NTSE (National Talent Search Examination) Scholar</li>
+      </ul>
+    </section>
+
+    <section id="writing">
+      <h2>Writing</h2>
+      <p class="body">Notes and expository writing, coming soon.</p>
+    </section>
+
+    <footer>
+      <p>Omar Muhammad &middot; Last updated September 2026 &middot; <a href="omar_cv.pdf">CV (PDF)</a></p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// Assemble the address at runtime so naive harvesters do not pick it up from the source.
+(function () {
+  var u = "omarmuhammad", d = ["iisc", "ac", "in"].join(".");
+  var a = document.getElementById("email-link");
+  if (!a) return;
+  a.textContent = u + "@" + d;
+  a.href = "mai" + "lto:" + u + "@" + d;
+})();
+
+// Highlight the section currently in view.
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll(".side nav a"));
+  var sections = links.map(function (l) { return document.querySelector(l.getAttribute("href")); });
+  function update() {
+    var y = window.scrollY + 130, current = 0;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i] && sections[i].offsetTop <= y) current = i;
+    }
+    links.forEach(function (l, i) { l.classList.toggle("current", i === current); });
+  }
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+})();
+</script>
 </body>
 </html>
