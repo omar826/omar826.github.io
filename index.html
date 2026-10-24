@@ -191,14 +191,16 @@ footer p { margin: 0; }
 
     <section id="about">
       <h2>About</h2>
-      <div class="lead"></p>
+      <div class="lead">
         <p>I am an undergraduate at the Indian Institute of Science (IISc), specializing in Mathematics and Computing. I&rsquo;m interested in mathematical logic, automata theory, programming languages, and formal methods, mostly as ways of understanding computation through precise mathematics.</p>
         <p>I&rsquo;m currently enjoying designing proof search techniques: deciding what a prover should try first, what it should never try, and what a logic has to look like for the search to stand a chance. I&rsquo;ve also worked on synthesis bottlenecks that limit fully automated program verification, such as generating loop invariants or library contracts, approached with neuro-symbolic methods.</p>
-        <p>Part of the appeal is practical. AI has made code cheap to write but no cheaper to trust, and I&rsquo;d like verification to become a routine part of building software rather than a specialist effort. That needs both better proof automation and languages in which specifications and proofs are easier to write in the first place. The other part is that I just enjoy it. Lately I&rsquo;ve been particularly drawn to reading of arguments built on self-reference.</p>
+        <p>Some of my motivation is practical. Now that AI writes so much of our code, checking that code has become the harder problem, and I&rsquo;d like verification to be something programmers simply do as part of writing software. Getting there will take better proof automation, and also languages in which specifications and proofs are easier to write in the first place. Mostly, though, I just enjoy it. Lately I&rsquo;ve been reading a lot about arguments built on self-reference.</p>
       </div>
 
       <h2>News</h2>
       <ul class="news">
+        <li><span class="date">Oct 2026</span><span>Our poster on finite automata playing repeated games was accepted at RHPL 2026; I&rsquo;ll be presenting it at IIT Delhi in December.</span></li>
+        <li><span class="date">Oct 2026</span><span><a href="bga_consistency.pdf">Technical report</a> on a consistency proof for BGA carried out inside grounded arithmetic in Isabelle/Pure, from my internship at EPFL.</span></li>
         <li><span class="date">May 2026</span><span>Started as a Summer Research Fellow at EPFL&rsquo;s DEDIS Lab, working on grounded deduction with Prof. Bryan Ford.</span></li>
         <li><span class="date">Apr 2026</span><span>Our paper on <em>Verification Modulo Tested Library Contracts</em> was accepted to PLDI 2026.</span></li>
       </ul>
@@ -214,7 +216,7 @@ footer p { margin: 0; }
     </section>
 
     <section id="publications">
-      <h2>Publications</h2>
+      <h2>Publications &amp; Preprints</h2>
 
       <div class="pub">
         <div class="title">Verification Modulo Tested Library Contracts</div>
@@ -229,20 +231,26 @@ footer p { margin: 0; }
       <div class="pub">
         <div class="title">Have a thing? Reasoning around recursion with dynamic typing in grounded arithmetic</div>
         <p class="authors">Bryan Ford, Elliot Bobrow, Stefan Milenkovi&#263;, <span class="me">Omar Muhammad</span>, Dimitrios Alexopoulos, Yusuf Demir, Ananthajit Srikant</p>
-        <p class="venue">Under review at the ACM SIGPLAN Conference on Principles of Programming Languages.</p>
+        <p class="venue">To be submitted to ACM/IEEE Symposium on Logic in Computer Science (LICS 2027)</p>
         <p class="links">
           <a href="https://arxiv.org/abs/2510.25369">Paper</a>
         </p>
       </div>
 
       <div class="pub">
-        <div class="title">Mask2Cause: Causal Discovery via Adjacency Constrained Causal Attention</div>
+        <div class="title">Mask2Cause: Temporal Causal Discovery Beyond Causality in Mean</div>
         <p class="authors"><span class="me">Omar Muhammad</span>, Pasupuleti Dhruv Shivkant, Deepak N. Subramani</p>
-        <p class="venue">Under review at the conference on Neural Information Processing Systems (NeurIPS 2026).</p>
+        <p class="venue">Under review at the International Conference on Learning Representations (ICLR 2027).</p>
         <p class="links">
           <a href="https://arxiv.org/abs/2605.07280">Paper</a>
           <a href="https://github.com/omar826/Mask2Cause">Code</a>
         </p>
+      </div>
+
+      <div class="pub">
+        <div class="title">Phase Transition Thresholds when Finite Automata Play Supergames under Finite Costs for Complexity</div>
+        <p class="authors"><span class="me">Omar Muhammad</span>, Amrit Mahendra Joseph</p>
+        <p class="venue">Poster accepted at Workshop on Research Highlights in Programming Languages (RHPL 2026), organized by IARCS and iPLAN (the India Chapter of ACM SIGPLAN), co-located with FSTTCS 2026 at IIT Delhi.</p>
       </div>
     </section>
 
@@ -252,15 +260,17 @@ footer p { margin: 0; }
       <div class="entry">
         <h3>Grounded Deduction</h3>
         <p class="meta">Summer Research Fellow &middot; EPFL, Switzerland &middot; May 2026 &ndash; Present (onsite May &ndash; July 2026; remote after)</p>
-        <p class="adviser">Adviser: Prof. Bryan Ford, DEDIS Lab</p>
+        <p class="adviser">Adviser: Prof. Bryan Ford, EPFL</p>
         <ul>
-          <li>Developing Grounded Arithmetic, a non-classical logic that admits arbitrary recursive definitions without prior termination proofs, and mechanising its metatheory in Isabelle.</li>
-          <li>Proved truth preservation and primitive recursiveness for the inference rules of Basic Grounded Arithmetic (BGA). Contributed to the design of Propositional Grounded Arithmetic (PGA).</li>
-          <li>Built a quantified extension of Grounded Arithmetic as a usable object logic in Isabelle/Pure, and established the consistency of BGA within it.</li>
-          <li>Designing automated proof-search tactics for the Isabelle/Pure development, which inherits none of the automation built for classical and intuitionistic logics.</li>
+          <li>Developing Grounded Deduction, a formal reasoning framework that admits arbitrary recursive definitions without prior termination proofs, using explicit definedness conditions to reason about potentially nonterminating computations.</li>
+          <li>Building on an existing Isabelle/Pure implementation of Grounded Deduction, encoded Basic Grounded Arithmetic&rsquo;s syntax, semantics, and proof checker and proved its consistency within GD, using step-indexed satisfaction.</li>
+          <li>Developing GD2, a usability-focused implementation of Grounded Deduction in Isabelle/Pure, with unified terms and formulas, first-class functions, and a definable fixed-point operator supporting recursive and mutually recursive definitions without new axioms or termination proofs at definition time.</li>
+          <li>Adapting and extending proof automation and libraries, with comparative case studies in Isabelle/HOL and Lean 4; developing a hammer that translates GD2 goals to first-order problems and reconstructs external proofs in Isabelle.</li>
+          <li>Extended GD&rsquo;s mechanized metatheory by adding proof-checker rules and proving primitive recursiveness and truth preservation; proved that Propositional Grounded Arithmetic (PGA) contains its own truth predicate.</li>
         </ul>
         <p class="links">
           <a href="https://arxiv.org/abs/2510.25369">Paper</a>
+          <a href="bga_consistency.pdf">Report</a>
           <a href="grounded.pdf">Slides</a>
         </p>
       </div>
@@ -270,9 +280,10 @@ footer p { margin: 0; }
         <p class="meta">Student Researcher &middot; IISc &middot; May 2025 &ndash; Apr 2026</p>
         <p class="adviser">Advisers: Prof. D. D&rsquo;Souza (IISc), Prof. P. Madhusudan (UIUC), Prof. A. Murali (UW-Madison)</p>
         <ul>
-          <li>Co-developed VMTLC, a hybrid framework that verifies client programs by synthesizing library specifications that are formally proven against the client but validated via testing against the library.</li>
-          <li>Designed the Learner component within a Teacher-Learner CEGIS loop, developing two distinct LLM-integrated architectures (a pure LLM learner and an LLM-seeded ICE learner) to leverage semantic intuition, synthesizing valid contracts where traditional enumerative baselines could not.</li>
-          <li>Designed and built the core LLM pipeline responsible for generating contracts from logical rules and integrated it into a feedback loop with formal verifiers and testing engines to ensure correctness.</li>
+          <li>Co-developed VMTLC, a framework that verifies client programs assuming synthesized library contracts, while testing those contracts against the library implementations.</li>
+          <li>Co-designed the Learner component within a Teacher-Learner CEGIS loop, developing two distinct LLM-integrated architectures (a pure LLM learner and an LLM-seeded ICE learner) to leverage semantic intuition, synthesizing valid contracts where traditional enumerative baselines could not.</li>
+          <li>Independently designed and implemented the LLM pipeline for synthesizing contracts and invariants from logical constraints, including prompt templates, counterexample-driven repair, malformed-output handling, and integration with formal verification and testing; implemented LLM-generated attributes for the hybrid HornICE learner.</li>
+          <li>Designed and implemented two mutation templates producing 30 incorrect programs that escaped testing; analyzed when modular and contextual VMTLC rejected or accepted them.</li>
         </ul>
         <p class="links">
           <a href="https://dl.acm.org/doi/10.1145/3808305">Paper</a>
@@ -281,12 +292,26 @@ footer p { margin: 0; }
       </div>
 
       <div class="entry">
-        <h3>Enhancing Formal Verification with LLMs</h3>
-        <p class="meta">Research Intern &middot; University of Virginia, USA (Remote) &middot; Aug 2025 &ndash; Oct 2025</p>
-        <p class="adviser">Adviser: Prof. Wenxi Wang, The University of Virginia</p>
+        <h3>Causal Discovery in Time Series</h3>
+        <p class="meta">Student Researcher &middot; IISc &middot; Aug 2025 &ndash; Present</p>
+        <p class="adviser">Adviser: Prof. Deepak N. Subramani, Computational and Data Sciences, IISc</p>
         <ul>
-          <li>Developed ACPRO, a framework that uses a multi-agent LLM pipeline to transform low-level Z3 proofs into interpretable, high-level Verus verification steps.</li>
-          <li>This work also produced the VSVerus dataset, a new resource for studying fine-grained LLM reasoning in formal verification.</li>
+          <li>Led the research and designed and implemented Mask2Cause, a Transformer framework for causal discovery through conditional mean and variance prediction using adjacency-constrained attention over inverted variable embeddings.</li>
+          <li>Designed a variance-aware prediction objective and the novel Mixed Physics benchmark to study dependencies expressed through conditional mean and variance; developed an information-theoretic analysis motivating the objective.</li>
+          <li>Designed controlled experiments investigating information leakage, hidden confounding, changing causal graphs, and separation of mean and variance parents; used the findings to refine architectural claims and characterize limitations.</li>
+        </ul>
+        <p class="links">
+          <a href="https://arxiv.org/abs/2605.07280">Paper</a>
+          <a href="https://github.com/omar826/Mask2Cause">Code</a>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>Finite Automata in Repeated Games</h3>
+        <p class="meta">Student Researcher &middot; IISc &middot; Jan 2026 &ndash; Present</p>
+        <ul>
+          <li>Leading a collaborative investigation of repeated Prisoner&rsquo;s Dilemma strategies implemented as finite automata, studying how per-state memory costs affect cooperation and equilibrium.</li>
+          <li>Derived a tight cost threshold for sustaining eventual mutual cooperation in Nash equilibrium, and bounds on when non-defection outcomes disappear under Nash and semi-perfect equilibrium.</li>
         </ul>
       </div>
 
@@ -297,32 +322,18 @@ footer p { margin: 0; }
         <ul>
           <li>Formalized proofs for decision problems in geometric group theory (including the word, conjugacy, and subgroup membership problems) using the Lean 4 proof assistant.</li>
           <li>Key contributions include formalizing two definitions of the Dehn function and proving their equivalence and verifying the algorithm for the conjugacy problem in free groups.</li>
-          <li>Current work focuses on the computability of the Dehn function for hyperbolic groups.</li>
+          <li>The project forms part of a broader research effort on formalizing algorithms in geometric group theory, including the computability of Dehn functions for hyperbolic groups, for which I helped formalize the foundations.</li>
         </ul>
       </div>
 
       <div class="entry">
-        <h3>Game Theory and Automata</h3>
-        <p class="meta">Student Researcher &middot; IISc &middot; Jan 2026 &ndash; Present</p>
+        <h3>Enhancing Formal Verification with LLMs</h3>
+        <p class="meta">Research Intern &middot; University of Virginia, USA (Remote) &middot; Aug 2025 &ndash; Oct 2025</p>
+        <p class="adviser">Adviser: Prof. Wenxi Wang, The University of Virginia</p>
         <ul>
-          <li>Investigating supergames played by finite automata under finite costs for complexity to analyze the sequential collapse of equilibrium states.</li>
-          <li>Deriving critical phase change thresholds that characterize these equilibrium dynamics.</li>
+          <li>Explored techniques for decomposing Z3 proof objects for Verus-generated verification conditions into dependency-preserving proof subtrees, aiming to make solver reasoning easier for LLMs to interpret.</li>
+          <li>Assisted with evaluation of LLM-generated verification proofs and literature review; contributions acknowledged in the resulting ICML 2026 paper introducing VCoT-Lift and VCoT-Bench.</li>
         </ul>
-      </div>
-
-      <div class="entry">
-        <h3>Causal Discovery in Time Series</h3>
-        <p class="meta">Student Researcher &middot; IISc &middot; Aug 2025 &ndash; Present</p>
-        <p class="adviser">Adviser: Prof. Deepak N. Subramani, Computational and Data Sciences, IISc</p>
-        <ul>
-          <li>Proposed and developed Mask2Cause, an end-to-end Transformer that recovers the causal graph during the forecasting forward pass via a learnable sparse adjacency injected as a log-barrier into masked attention over inverted variable embeddings.</li>
-          <li>Formulated causal discovery under volatility spillover, where one variable governs the conditional variance rather than the mean of another. Motivated the heteroscedastic objective through the theory of directed information graphs and showed neural Granger causality to be its additive-noise special case.</li>
-          <li>Built Mixed Physics, the first benchmark separating mean-parents from variance-parents, and the first model to recover variance-mediated edges explicitly. Attained state-of-the-art accuracy at reduced parameter count.</li>
-        </ul>
-        <p class="links">
-          <a href="https://arxiv.org/abs/2605.07280">Paper</a>
-          <a href="https://github.com/omar826/Mask2Cause">Code</a>
-        </p>
       </div>
     </section>
 
@@ -367,17 +378,22 @@ footer p { margin: 0; }
       <div class="entry">
         <h3>Logic and Automated Theorem Proving</h3>
         <p class="meta">Independent Study &middot; IISc &middot; Aug 2026 &ndash; Present</p>
-        <p class="adviser">Adviser: Prof. Deepak D&rsquo;Souza</p>
+        <p class="adviser">Adviser: Prof. Deepak D&rsquo;Souza, Computer Science and Automation, IISc</p>
         <ul>
-          <li>Studying structural proof theory (sequent calculi, cut-elimination and the properties a calculus needs for proof search to be feasible), provability and self-reference (G&ouml;del&rsquo;s incompleteness theorems, the derivability conditions, L&ouml;b&rsquo;s and Tarski&rsquo;s theorems), decidable fragments of logic, and automated reasoning (unification, resolution, superposition, tableaux and decision procedures for decidable theories).</li>
+          <li>Studying completeness of first-order logic, G&ouml;del&rsquo;s incompleteness theorems, L&ouml;b&rsquo;s theorem and Tarski&rsquo;s undefinability theorem.</li>
+          <li>Exploring structural proof theory and automated proof search techniques.</li>
         </ul>
+        <p class="links">
+          <a href="ISP_notes.pdf">Notes: Completeness of First-Order Logic</a>
+        </p>
       </div>
 
       <div class="entry">
         <h3>Threshold for Random k-SAT</h3>
-        <p class="meta">Reading Project &middot; Jan 2026 &ndash; April 2026</p>
+        <p class="meta">Reading Project &middot; IISc &middot; Jan 2026 &ndash; Apr 2026</p>
+        <p class="adviser">Adviser: Prof. Riddhipratim Basu, ICTS-TIFR</p>
         <ul>
-          <li>Explored the satisfiability threshold for random k-SAT as part of the &ldquo;Techniques in Discrete Probability&rdquo; course under the guidance of Prof. Riddhipratim Basu, ICTS-TIFR.</li>
+          <li>Explored the satisfiability threshold for random k-SAT as part of the &ldquo;Techniques in Discrete Probability&rdquo; course.</li>
           <li>Analyzed the foundational work by Dimitris Achlioptas and Yuval Peres, on the application of weighted moment methods to bound the threshold.</li>
         </ul>
         <p class="links">
@@ -388,9 +404,10 @@ footer p { margin: 0; }
 
       <div class="entry">
         <h3>PCP Theorem</h3>
-        <p class="meta">Reading Project &middot; Aug 2025 &ndash; Nov 2025</p>
+        <p class="meta">Reading Project &middot; IISc &middot; Aug 2025 &ndash; Nov 2025</p>
+        <p class="adviser">Adviser: Prof. Anand Louis, Computer Science and Automation, IISc</p>
         <ul>
-          <li>Conducted an in-depth study of the PCP theorem, analyzing its formulations in terms of both probabilistically checkable verifiers and the hardness of approximation under the guidance of Prof. Anand Louis, Department of Computer Science and Automation, IISc.</li>
+          <li>Conducted an in-depth study of the PCP theorem, analyzing its formulations in terms of both probabilistically checkable verifiers and the hardness of approximation.</li>
           <li>Analyzed Irit Dinur&rsquo;s proof of the theorem using gap amplification.</li>
         </ul>
         <p class="links">
@@ -432,9 +449,10 @@ footer p { margin: 0; }
 
       <div class="entry">
         <h3>Differential Topology and Knot Theory</h3>
-        <p class="meta">Reading Project &middot; May 2024 &ndash; July 2024</p>
+        <p class="meta">Reading Project &middot; IISc &middot; May 2024 &ndash; July 2024</p>
+        <p class="adviser">Adviser: Prof. Subhojoy Gupta, Mathematics, IISc</p>
         <ul>
-          <li>Explored topics in Differential Topology and Knot Theory under the guidance of Prof. Subhojoy Gupta, Department of Mathematics, Indian Institute of Science.</li>
+          <li>Explored topics in Differential Topology and Knot Theory.</li>
         </ul>
       </div>
 
@@ -450,16 +468,29 @@ footer p { margin: 0; }
     <section id="awards">
       <h2>Awards &amp; Recognitions</h2>
       <ul class="plain">
-        <li>Selected for MITACS Globalink Research Internship 2026 (Offers: Undergraduate Summer Research Program [UGSRP] at University of Toronto; Fields Undergraduate Summer Research Program [FUSRP] at University of Waterloo)</li>
-        <li>JEE Advanced Examination: 646th rank</li>
-        <li>JEE Mains Examination: 99.95 percentile, 654th rank</li>
+        <li>Selected for the Summer@EPFL research internship program, 2026</li>
+        <li>Selected for MITACS Globalink Research Internship 2026 (declined)</li>
+        <li>JEE Advanced Examination: All India Rank 646</li>
+        <li>JEE Mains Examination: 99.95 percentile, All India Rank 654</li>
         <li>KVPY (Kishore Vaigyanik Protsahan Yojana) Scholar</li>
         <li>NTSE (National Talent Search Examination) Scholar</li>
+        <li>NSEP (National Standard Examination in Physics) &ndash; National top 1%</li>
       </ul>
     </section>
 
     <section id="writing">
       <h2>Writing &amp; Talks</h2>
+
+      <div class="entry">
+        <h3>A consistency proof for BGA carried out inside grounded arithmetic in Isabelle/Pure</h3>
+        <p class="meta">Technical report &middot; October 2026</p>
+        <ul>
+          <li>Existing mechanized consistency results for grounded arithmetic are carried out in Isabelle/HOL, a classical metatheory far stronger than the object logic. This report carries the argument out inside a version of grounded arithmetic itself, proving as a theorem of QGA that BGA cannot prove both <em>a</em>&nbsp;=&nbsp;<em>b</em> and <em>a</em>&nbsp;&ne;&nbsp;<em>b</em> from empty hypotheses.</li>
+        </ul>
+        <p class="links">
+          <a href="bga_consistency.pdf">Report</a>
+        </p>
+      </div>
 
       <div class="entry">
         <h3>Reasoning Around Recursion &mdash; Grounded arithmetic: where it came from, and where it is</h3>
@@ -499,7 +530,7 @@ footer p { margin: 0; }
     </section>
 
     <footer>
-      <p>Omar Muhammad &middot; Last updated September 2026 &middot; <a href="omar_cv.pdf">CV (PDF)</a></p>
+      <p>Omar Muhammad &middot; Last updated October 2026 &middot; <a href="omar_cv.pdf">CV (PDF)</a></p>
     </footer>
 
   </main>
